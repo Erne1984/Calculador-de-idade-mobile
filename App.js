@@ -23,7 +23,9 @@ export default function App() {
   };
 
   const calculateAge = () => {
-    if (!day || !month || !year) {
+    if (day || month || year) {
+      setErrorMessage("");
+    }else{
       setErrorMessage('Preencha todos os campos');
       return;
     }
@@ -58,10 +60,6 @@ export default function App() {
     setAgeYears(idadeAnos.toString());
     setAgeMonths(idadeMeses.toString());
     setAgeDays(idadeDias.toString());
-  };
-
-  const mostrarMensagemErro = (mensagem) => {
-    // Implement your error handling logic here
   };
 
   return (
@@ -102,6 +100,7 @@ export default function App() {
     </View>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
